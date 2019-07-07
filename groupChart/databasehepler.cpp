@@ -3,7 +3,7 @@
 DataBaseHepler::DataBaseHepler()
 {
     db = QSqlDatabase::addDatabase("QMYSQL");//driver mode
-    db.setHostName("localhost");
+    db.setHostName("127.0.0.1");
     db.setPort(3306);
     db.setUserName("root");
     db.setPassword("123456");
