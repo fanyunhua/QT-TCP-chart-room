@@ -11,11 +11,11 @@ DataBaseHepler::DataBaseHepler()
     //connect to mysql , must have this sentence
     if(db.open())
     {
-        qDebug("connect to MySql successfully");
+        qDebug("connect to MySql successfully  ");
     }
     else
     {
-        qDebug("connect error");
+        qDebug("connect error connect failed");
     }
 }
 DataBaseHepler::~DataBaseHepler()
