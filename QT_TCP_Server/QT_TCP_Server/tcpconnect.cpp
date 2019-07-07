@@ -106,7 +106,7 @@ void TcpConnect::on_tcp_socket_reader()
                 jsonMessage.insert("message",msg);
                 jsonMessage.insert("from_user",fromUser);
                 map.value(toUser)->write(QString(QJsonDocument(jsonMessage).toJson()).toLatin1());
-                map.clear();
+                
             }
             else
             {
@@ -115,7 +115,7 @@ void TcpConnect::on_tcp_socket_reader()
                 jsonMessage.insert("message","Server prompt user has been offline");
                 jsonMessage.insert("from_user","Server");
                 socket->write(QString(QJsonDocument(jsonMessage).toJson()).toLocal8Bit());
-                map.clear();
+                
             }
             qDebug()<<"user chart to"<<toUser;
         }
