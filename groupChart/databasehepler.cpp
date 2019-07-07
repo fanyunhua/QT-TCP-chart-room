@@ -29,7 +29,7 @@ bool DataBaseHepler::select(QString *string,QString sql)
 
     bool isOK = query.exec(sql);
     ss.append("User name")
-            .append("\t\t\t").append("Pass word")
+            .append("\t\t\t\t").append("Pass word")
             .append("\n");
     while(query.next())
     {
