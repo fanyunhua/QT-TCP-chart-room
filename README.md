@@ -1,4 +1,5 @@
-#此接口用Json传输数据
+# QT tcp聊天室
+## 此接口用Json传输数据
 
 Client action : “login”,”send_message”,”send_file”
 Client send
