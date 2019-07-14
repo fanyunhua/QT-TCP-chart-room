@@ -1,7 +1,7 @@
 #ifndef DATABASEHEPLER_H
 #define DATABASEHEPLER_H
 
-#include "qdebug.h"
+#include "QDebug"
 #include "QtSql/QSqlDatabase"
 #include "QSqlQuery"
 #include "QSqlError"

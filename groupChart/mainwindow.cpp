@@ -39,7 +39,7 @@ void MainWindow::on_tools_update_password_clicked()
     dialog.setUserName(ui->lable_main_user_name->text());
     dialog.exec();
 
-    qDebug("update");
+    qDebug("update password");
 }
 
 void MainWindow::on_tools_action_log_out()
@@ -56,17 +56,9 @@ void MainWindow::on_socket_read()
 {
 
 
-//    qDebug()<<socket->readAll();
     QByteArray byte = socket->readAll();
-
-
-    qDebug()<<byte.toHex();
     QString readALL;
     readALL.append(byte);
-
-    qDebug()<<readALL;
-    qDebug()<<readALL.toLocal8Bit().toHex();
-    ui->textBrowser->setText(readALL);
 
     QJsonObject json; //= JsonParser::getJsonObjectFromString(readALL.append(byte));
     JsonParser parser;
@@ -80,22 +72,28 @@ void MainWindow::on_socket_read()
 
     QJsonObject::iterator msg = json.find("message");
     QJsonObject::iterator fromUser = json.find("from_user");
+
     if(QString::compare("group_message",iter.value().toString())==0)
     {
-//        ui->textBrowser->setText(
-//                    ui->textBrowser->setText()
-//                    .append(fromUser.value().toString())
-//                    .append(":")
-//                    .append(msg.value().toString()));
+        ui->textBrowser->setText(
+                    ui->textBrowser->toPlainText()
+                    .append("Group message ---->")
+                    .append(fromUser.value().toString())
+                    .append("->>")
+                    .append(msg.value().toString())
+                    .append("\n"));
     }
     else if(QString::compare("personal_message",iter.value().toString())==0)
     {
-//        ui->textBrowser->setText(
-//                    ui->textBrowser->setText()
-//                    .append(fromUser.value().toString())
-//                    .append(":")
-//                    .append(msg.value().toString()).append("\n"));
+        ui->textBrowser->setText(
+                    ui->textBrowser->toPlainText()
+                    .append("personal message ---->")
+                    .append(fromUser.value().toString())
+                    .append("->>")
+                    .append(msg.value().toString())
+                    .append("\n"));
     }
+    //TODO online user count
 
 }
 
