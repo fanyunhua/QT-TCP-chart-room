@@ -3,7 +3,7 @@
 DataBaseHepler::DataBaseHepler()
 {
     db = QSqlDatabase::addDatabase("QMYSQL");//driver mode
-    db.setHostName("127.0.0.1");
+    db.setHostName("localhost");
     db.setPort(3306);
     db.setUserName("root");
     db.setPassword("123456");
@@ -11,11 +11,11 @@ DataBaseHepler::DataBaseHepler()
     //connect to mysql , must have this sentence
     if(db.open())
     {
-        qDebug("connect to MySql successfully  ");
+        qDebug("connect to MySql successfully");
     }
     else
     {
-        qDebug("connect error connect failed");
+        qDebug("connect error");
     }
 }
 DataBaseHepler::~DataBaseHepler()
@@ -29,7 +29,7 @@ bool DataBaseHepler::select(QString *string,QString sql)
 
     bool isOK = query.exec(sql);
     ss.append("User name")
-            .append("\t\t\t\t").append("Pass word")
+            .append("\t\t\t").append("Pass word")
             .append("\n");
     while(query.next())
     {
